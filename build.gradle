@@ -1,28 +1,13 @@
-buildscript {
-    repositories {
-        mavenCentral()
-        maven {
-            name = "forge"
-            url = "http://files.minecraftforge.net/maven"
-        }
-        maven {
-            name = "sonatype"
-            url = "https://oss.sonatype.org/content/repositories/snapshots/"
-        }
-    }
-    dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
-    }
+plugins {
+    id "net.minecraftforge.gradle.forge" version "2.0.2"
 }
-
-apply plugin: 'forge'
 
 version = "0.1"
 group= "pnb.warpstone" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "warpstone"
 
 minecraft {
-    version = "1.8-11.14.3.1450"
+    version = "1.8-11.14.4.1563"
     runDir = "eclipse"
     
     // the mappings can be changed at any time, and must be in the following format.
@@ -46,15 +31,8 @@ dependencies {
     // for more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
-	
-	repositories {
-		flatDir {
-			dirs 'libs'
-		}
-	}
-	
-	compile name: 'PNBUtils-0.1'
-	
+    compile 'com.google.inject:guice:4.0'
+    compile 'com.google.inject.extensions:guice-assistedinject:4.0'
 }
 
 processResources
